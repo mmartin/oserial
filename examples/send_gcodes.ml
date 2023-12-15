@@ -1,7 +1,6 @@
 open Lwt.Infix
 
 module Serial_config = struct
-	let port = "/dev/ttyUSB0"
 	let baud_rate = 115200
 end
 
@@ -21,6 +20,7 @@ let () =
 			]
 		in
 
+		Serial0.connect "/dev/ttyUSB0" >>= fun () ->
 		Lwt_io.printl "Starting demo...." >>= fun () ->
 		Lwt_list.iter_s send_command commands >>= fun () ->
 		Lwt_io.printl "Commands sent."

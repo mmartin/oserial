@@ -9,7 +9,6 @@ opam install serial
 Create a Serial_config module
 ```ocaml
 module Serial_config = struct
-    let port = "/dev/ttyUSB0"
     let baud_rate = 115200
 end
 ```
@@ -17,6 +16,9 @@ end
 Open the port
 ```ocaml
 module Serial0 = Serial.Make(Serial_config)
+
+let () =
+    Lwt_main.run (Serial0.connect "/dev/ttyUSB0")
 ```
 
 **Supplied Functions**

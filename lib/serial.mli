@@ -5,7 +5,6 @@ creates a new module with a newly opened Serial connection.
 Most programs using the {!Serial} module start with something like:
 {[
 module Serial_config = struct
-	let port = "/dev/ttyUSB0"
 	let baud_rate = 115200
 end
 
